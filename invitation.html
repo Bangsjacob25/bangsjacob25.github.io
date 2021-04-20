@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="invitation.html" class="active">Invitation</a>
+                </li>
+                <li><a href="gallery.html">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="pageForm">
+<form action="#">
+    <label for="number">Number of Recipients:</label>
+    <input id="number" type="text" name="number" placeholder="Number of Invites"/>
+	<br>
+	<input type="button" value="Generate Name Blanks" onclick="nameinputs()">
+	<div id="newinputdiv"></div>
+	<br>
+	<input type="button" value="Add Names" onclick="addWord()">
+	<br>
+	<br>
+	<label for="organizationName">Organization name:</label>
+    <input id="organizationName" type="text" name="organizationName" placeholder="Enter your Organization Name" />
+	<br>
+
+    <label for="eventDate">Event Date:</label>
+    <input id="eventDate" type="text" name="eventDate" placeholder="Enter your Event Date" />
+	<br>
+
+    <label for="hostName">Host name:</label>
+    <input id="hostName" type="text" name="hostName" placeholder="Host Name" />
+	<br>
+	<br>
+	<input type="button" value="Create Invites" onclick="fill()">
+</form>
+</section>
+<article>
+<div id="invite">Invites will Generate Below Here:</div>
+</article>
+<script>
+function nameinputs(){
+var inputfill = document.getElementById("newinputdiv");
+var length = document.getElementById("number").value;
+for (var i = 0; i < length; i++){
+	var newinput = document.createElement("input");
+		newinput.setAttribute("id", "userinput" + i);
+        newinput.setAttribute("type", "text");
+		newinput.setAttribute("placeholder", "Enter Name"); 
+        inputfill.appendChild(newinput);
+        inputfill.appendChild(document.createElement("br"));
+    }	
+}
+function fill(){
+var inputContainer = document.getElementById("invite");
+var length = document.getElementById("number").value;
+var orgname = document.getElementById("organizationName").value;
+var date = document.getElementById("eventDate").value;
+var hostname = document.getElementById("hostName").value;
+var frameworktext1 = ("Hello ")
+var frameworktext3 = (" You have been invited to volunteer for an event held by " + orgname + " on " + date + ". Thanks! " + hostname)
+for (var i = 0; i < length; i++){
+	var frameworktext2 = (arrayOfWord[i])
+	var newForm = document.createElement("article");
+		newForm.setAttribute("id", "name" + i);
+        newForm.setAttribute("type", "text");
+	var defaulttext = document.createTextNode(frameworktext1 + frameworktext2 + frameworktext3); 
+        inputContainer.appendChild(newForm);
+		inputContainer.appendChild(defaulttext);
+        inputContainer.appendChild(document.createElement("br"));
+    }	
+}
+var arrayOfWord = [];
+function addWord() {
+var lengtharray = document.getElementById("number").value;
+for (i = 0; i < lengtharray; i++){
+var inputElement = document.getElementById("userinput" + i).value;
+arrayOfWord.push(inputElement);
+(inputElement + i).value = "";
+}
+}
+</script>
+</body>
+</html>
