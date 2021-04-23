@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/event.jpg" type="image/jpg"/>
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/firefighter.jpg" type="image/jpg"/>
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/silhouette.jpg" type="image/jpg"/>
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/work.jpg" type="image/jpg"/>
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="invitation.html">Invitation</a>
+                </li>
+                <li><a href="gallery.html"  class="active">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="gallery">
+<div class="gallery">
+  <a target="_blank" href="css/img/firefighter.jpg">
+    <img src="css/img/firefighter.jpg" alt="firefighter" width="300" height="200" id="img1">
+  </a>
+  <div class="desc">Image Rollover</div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="css/img/silhouette.jpg">
+    <img src="css/img/silhouette.jpg" alt="silhouette" width="300" height="200" id="img2">
+  </a>
+  <div class="desc">Image Rollover</div>
+</div>
+    </section>
+<script>
+	document.getElementById("img1").addEventListener("mouseover", changeimage);
+    document.getElementById("img1").addEventListener("mouseleave", changeimageback);
+	function changeimage() {
+        document.getElementById("img1").src = "css/img/work.jpg";
+		}
+	function changeimageback() {
+        document.getElementById("img1").src = "css/img/firefighter.jpg";
+		}
+		
+	document.getElementById("img2").addEventListener("mouseover", changeimage2);
+    document.getElementById("img2").addEventListener("mouseleave", changeimageback2);
+	function changeimage2() {
+        document.getElementById("img2").src = "css/img/event.jpg";
+		}
+	function changeimageback2() {
+        document.getElementById("img2").src = "css/img/silhouette.jpg";
+		}
+</script>
+
+
+    <footer>This events site is for IT-FP3215 tasks.
+    </footer>
+</body>
+
+</html>

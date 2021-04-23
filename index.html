@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/banner1.jpg" type="image/jpg"/>
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/banner2.jpg" type="image/jpg"/>
+	<link rel="preLoad" as="image" href="https://github.com/Bangsjacob25/bangsjacob25.github.io/blob/main/images/banner3.jpg" type="image/jpg"/>
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html" class="active">Home</a>
+                </li>
+                <li><a href="invitation.html">Invitation</a>
+                </li>
+                <li><a href="gallery.html">Gallery</a>
+                </li>
+                <li><a href="registration.html">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <div class="main-banner" id="main-banner">
+	<div class="imgban" id="imgban3">
+	
+	</div>
+	<div class="imgban" id="imgban2">
+	
+	</div>
+	<div class="imgban" id="imgban1">
+	
+	</div>
+</div>
+<script>
+	var bannerStatus = 1;
+	var bannerTimer = 3000;
+	
+	window.onload = function(){
+		bannerloop();
+		}
+	
+	var startBannerLoop = setInterval(function(){
+		bannerloop();
+	}, bannerTimer);
+	
+	document.getElementById("main-banner").onmouseenter = function (){
+		clearInterval(startBannerLoop);
+	}
+	document.getElementById("main-banner").onmouseleave = function (){
+		startBannerLoop = setInterval(function(){
+			bannerloop();
+		}, bannerTimer);
+	}
+	function bannerloop(){
+		if (bannerStatus === 1){
+			document.getElementById("imgban2").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban1").style.right = "0px";
+				document.getElementById("imgban1").style.zIndex = "1000px";
+				document.getElementById("imgban2").style.right = "-1200px";
+				document.getElementById("imgban2").style.zIndex = "1500px";
+				document.getElementById("imgban3").style.right = "1200px";
+				document.getElementById("imgban3").style.zIndex = "500px";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban2").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 2;
+		}
+		else if (bannerStatus === 2){
+			document.getElementById("imgban3").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban2").style.right = "0px";
+				document.getElementById("imgban2").style.zIndex = "1000px";
+				document.getElementById("imgban3").style.right = "-1200px";
+				document.getElementById("imgban3").style.zIndex = "1500px";
+				document.getElementById("imgban1").style.right = "1200px";
+				document.getElementById("imgban1").style.zIndex = "500px";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban3").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 3;
+		}
+				else if (bannerStatus === 3){
+			document.getElementById("imgban1").style.opacity = "0";
+			setTimeout(function(){
+				document.getElementById("imgban3").style.right = "0px";
+				document.getElementById("imgban3").style.zIndex = "1000px";
+				document.getElementById("imgban1").style.right = "-1200px";
+				document.getElementById("imgban1").style.zIndex = "1500px";
+				document.getElementById("imgban2").style.right = "1200px";
+				document.getElementById("imgban2").style.zIndex = "500px";
+			}, 500);
+			setTimeout(function(){
+				document.getElementById("imgban1").style.opacity = "1";
+			}, 1000);
+			bannerStatus = 1;
+		}
+	}
+</script>
+
+
+    <footer>This events site is for IT-FP3215 tasks.
+    </footer>
+</body>
+
+</html>
