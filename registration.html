@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Invitation Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+    <header>
+        <div class="top">
+            <a class="logo" href="index.html">CapellaVolunteers<span class="dotcom">.org</span></a>
+        </div>
+        <nav>
+            <ul class="topnav">
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a href="invitation.html">Invitation</a>
+                </li>
+                <li><a href="gallery.html">Gallery</a>
+                </li>
+                <li><a href="registration.html" class="active">Registration</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="pageForm">
+        <form action="#">
+            <label for="userName">Username:</label>
+            <input type="text" name="userName" placeholder="Enter your Username" id="userName" />
+
+            <label for="Password">Password:
+            </label>
+            <input type="password" name="password" placeholder="Enter your Password" id="password" />
+
+            <label for="passwordVerify">Verify your Password:
+            </label>
+            <input type="password" name="passwordVerify" placeholder="Enter in your Password again" id="password2" />
+
+            <label for="firstName">First Name:
+            </label>
+            <input type="text" name="firstName" placeholder="Enter your First Name" id="firstName" />
+
+            <label for="hostName">Last Name:
+            </label>
+            <input type="text" name="lastName" placeholder="Enter your Last Name" id="lastName" />
+            <label for="email">Email:
+            </label>
+            <input type="text" name="email" placeholder="Enter your Email Address" id="email" />
+			<label for="phoneNumber">Phone Number:
+            </label>
+            <input type="text" name="phonenumber" placeholder="Enter your Phone Number" id="phoneNumber" />
+			<label for="signUpNewsletter">Sign up for newsletter:
+            </label>
+			  <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes 
+				<input type="radio" name="signUpNewsletter" value="No"> No
+				<div id="error" type="error" class="error"></div>
+            <input type="button" value="Create Invites" onclick="errorcheck()">
+        </form>
+    </section>
+<script>
+const username = document.getElementById('userName')
+const password = document.getElementById('password')
+const passwordVerify = document.getElementById ('password2')
+const firstname = document.getElementById ('firstName')
+const lastname = document.getElementById ('lastName')
+const email = document.getElementById ('email')
+const phonenumber = document.getElementById ('phoneNumber')
+const form = document.getElementById('form')
+const errorElement = document.getElementById('error')
+const regex = /^[A-Za-z0-9]+$/
+const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const regexPhone = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/
+function errorcheck(){
+var validUsername = regex.test(username.value);
+var validEmail = regexEmail.test(email.value);
+var validPhone = regexPhone.test(phonenumber.value);
+  let messages = []
+  
+  if (username.value === '' || username.value == null) {
+    messages.push('Username is required')
+  }
+  
+  if (!validUsername) {
+    messages.push('Username must contain only Letters and Numbers')
+  }
+  
+  if (password.value.length <= 7) {
+    messages.push('Password must be longer than 7 characters')
+  }
+
+  if (password.value.length >= 20) {
+    messages.push('Password must be less than 20 characters')
+  }
+  
+  if (password2.value.length <= 7) {
+    messages.push('VerifiedPassword must be longer than 7 characters')
+  }
+
+  if (password2.value.length >= 20) {
+    messages.push('VerifiedPassword must be less than 20 characters')
+  }
+
+  if (password.value != password2.value) {
+    messages.push('Passwords do not match')
+  }
+  
+  if (firstname.value === '' || firstname.value == null) {
+    messages.push('firstname is required')
+  }
+  
+  if (lastname.value === '' || lastname.value == null) {
+    messages.push('lastname is required')
+  }
+
+  if (!validEmail) {
+    messages.push('Email is not valid')
+  }
+  if (!validPhone) {
+    messages.push('Phonenumber is not valid ex.(123) 456-7890')
+  }
+
+  if (messages.length > 0) {
+    errorElement.innerText = messages.join(', ')
+  }
+}
+</script>
+</body>
+
+</html>
