@@ -176,3 +176,6 @@ div.desc {
 	background-position: center;
 	background-repeat: no-repeat;	
 }
+div.error{
+	color: red;
+}
