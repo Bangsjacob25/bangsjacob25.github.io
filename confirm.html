@@ -26,11 +26,19 @@
         </nav>
     </header>
     <section id="pageFormContent">
+	<form>
+	<input type="button" value="View Information" onclick="listCookies()">
+	<br>
+	<input type="button" value="Finish">
+	
+	</form>
+<script>
+function listCookies() {
+var x = document.cookie; 
+window.alert(x);
+}
+</script>
 
-            <!--
-			Process content to display content on screen
-			
-			-->
             
 
     </section>
