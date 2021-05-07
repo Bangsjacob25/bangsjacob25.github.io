@@ -27,26 +27,73 @@
     </header>
     <section id="pageForm">
         <form action="#">
+			<div> Interests: </div>
+			<br>
+			<input type="checkbox" id="movies"> Movies
+			<br>
+			<input type="checkbox" id="music"> Music
+			<br>
+			<input type="checkbox" id="games"> Games
+			<br>
+			<br>
+			<label for="signUpNewsletter">Sign up for newsletter:</label>
+			<input type="radio" name="signUpNewsletter" value="Yes" id="newsletter"> Yes 
+			<input type="radio" name="signUpNewsletter" value="No" id="newsletter"> No
+			<br>
+			<br>
+			<label for="Comments">Comments:</label>
+			<input type="text" name="Comments" id="comments">
+			<br>
+			<br>
+			<label for="Comments">Referred By:</label>
+			<input type="text" name="Referred By" id="refer">
 			
-            <!--
-			Include other form fields here
+            <input type="hidden" name="userName" id="username" value=""/>
+            <input type="hidden" name="password" id="password" value=""/>
+            <input type="hidden" name="firstName" id="firstname" value=""/>
+            <input type="hidden" name="lastName" id="lastname"  value="" />
+            <input type="hidden" name="email" id="email" value=""/>
+            <input type="hidden" name="phonenumber" id="phonenumber" value=""/>
 			
-			-->
-            <input type="hidden" name="userName"/>
-            <input type="hidden" name="password"/>
-            <input type="hidden" name="passwordVerify" />
-            <input type="hidden" name="firstName" />
-            <input type="hidden" name="lastName" />
-            <input type="hidden" name="email"/>
-            <input type="hidden" name="lastName" />
-			<input type="hidden" name="signUpNewsletter"/ >
-			
-            <input type="submit" value="Register">
+            <input type="button" value="Register" onclick="Cookies()">
         </form>
     </section>
+	<script>
 
-    <footer>This events site is for IT-FP3215 tasks.
-    </footer>
+	function Cookies(){
+	const username = document.getElementById('username')
+	const password = document.getElementById('password')
+	const firstname = document.getElementById ('firstname')
+	const lastname = document.getElementById ('lastname')
+	const email = document.getElementById ('email')
+	const phonenumber = document.getElementById ('phonenumber')
+	
+	const movies = document.getElementById("movies");
+	const music = document.getElementById("music");
+	const games = document.getElementById("games");
+	const newsletter = document.getElementById("newsletter");
+	const comments = document.getElementById("comments");
+	const referred_by = document.getElementById("refer");
+	var today = new Date();
+	var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);	
+	
+	var cookie7 = document.cookie="Movies" + "=" + movies.checked + "; path=C:\Users\bangs\Desktop\Capella\Class 6\IT-FP3215-bangs_jacob5-1\confirm.html; expires=" + expiry.toGMTString();
+	var cookie8 = document.cookie="Music" + "=" + music.checked + "; path=/; expires=" + expiry.toGMTString();
+	var cookie9 = document.cookie="Games" + "=" + games.checked + "; path=/; expires=" + expiry.toGMTString();
+	var cookie10 = document.cookie="Newsletter" + "=" + newsletter.value + "; path=/; expires=" + expiry.toGMTString();
+	var cookie11 = document.cookie="Comments" + "=" + comments.value + "; path=/; expires=" + expiry.toGMTString();
+	var cookie12 = document.cookie="Referred by" + "=" + referred_by.value + "; path=/; expires=" + expiry.toGMTString();
+	var x = document.cookie; 
+	window.alert(x);
+	document.write(cookie7);
+	document.write(cookie8);
+	document.write(cookie9);
+	document.write(cookie10);
+	document.write(cookie11);
+	document.write(cookie12);
+	window.location.href = "confirm.html";
+}
+	</script>
 </body>
 
 </html>
