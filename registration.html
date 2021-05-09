@@ -26,7 +26,7 @@
         </nav>
     </header>
     <section id="pageForm">
-        <form action="#" id="myForm">
+        <form action="#">
             <label for="userName">Username:</label>
             <input type="text" name="userName" placeholder="Enter your Username" id="userName" />
 			<div id="usernameerror" type="error" class="error"></div><br>
@@ -67,7 +67,7 @@
 			  <input type="radio" name="signUpNewsletter" value="Yes" checked> Yes 
 				<input type="radio" name="signUpNewsletter" value="No"> No
 				<br><br>
-            <input type="button" value="Signup" onclick="errorcheck()" onclick="storeValues()">
+            <input type="button" value="Signup" onclick="errorcheck()">
         </form>
     </section>
 <script>
@@ -86,7 +86,6 @@ const errorElementFirstName = document.getElementById('firstnameerror')
 const errorElementLastName = document.getElementById('lastnameerror')
 const errorElementEmail = document.getElementById('emailerror')
 const errorElementPhone = document.getElementById('phoneerror')
-const myForm = document.getElementById('myForm')
 const regex = /^[A-Za-z0-9]+$/
 const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const regexPhone = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/
@@ -101,8 +100,7 @@ var validPhone = regexPhone.test(phonenumber.value);
   errorElementLastName.innerText =('')
   errorElementEmail.innerText =('')
   errorElementPhone.innerText =('')
-  
-     if (!validPhone) {
+    if (!validPhone) {
     errorElementPhone.innerText =('Phonenumber is not valid ex.(123) 456-7890');
 	document.getElementById("phoneNumber").focus();
 	document.getElementById("phoneNumber").select();
@@ -159,29 +157,10 @@ var validPhone = regexPhone.test(phonenumber.value);
 	document.getElementById("userName").focus();
 	document.getElementById("userName").select();
   }
-else{
-	var today = new Date();
-	var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000);	
-    var cookie1 = document.cookie="username" + "=" + userName.value + "; path=/; expires=" + expiry.toGMTString();
-	var cookie2 = document.cookie="password" + "=" + password.value + "; path=/; expires=" + expiry.toGMTString();
-	var cookie3 = document.cookie="firstname" + "=" + firstName.value + "; path=/; expires=" + expiry.toGMTString();
-	var cookie4 = document.cookie="lastname" + "=" + lastName.value + "; path=/; expires=" + expiry.toGMTString();
-	var cookie5 = document.cookie="email" + "=" + email.value + "; path=/; expires=" + expiry.toGMTString();
-	var cookie6 = document.cookie="phone" + "=" + phonenumber.value + "; path=/; expires=" + expiry.toGMTString();
-	document.write(cookie1);
-	document.write(cookie2);
-	document.write(cookie3);
-	document.write(cookie4);
-	document.write(cookie5);
-	document.write(cookie6);
-	window.location.href = "interests.html";
-  }
-
-
-
 
 }
 </script>
 </body>
 
 </html>
+
