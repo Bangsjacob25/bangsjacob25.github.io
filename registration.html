@@ -102,6 +102,52 @@ var validPhone = regexPhone.test(phonenumber.value);
   errorElementEmail.innerText =('')
   errorElementPhone.innerText =('')
   
+     if (!validPhone) {
+    errorElementPhone.innerText =('Phonenumber is not valid ex.(123) 456-7890');
+	document.getElementById("phoneNumber").focus();
+	document.getElementById("phoneNumber").select();
+  }
+    if (!validEmail) {
+    errorElementEmail.innerText =('Email is not valid');
+	document.getElementById("email").focus();
+	document.getElementById("email").select();
+  }
+    if (lastname.value === '' || lastname.value == null) {
+    errorElementLastName.innerText =('lastname is required');
+	document.getElementById("lastName").focus();
+	document.getElementById("lastName").select();
+  }
+    if (firstname.value === '' || firstname.value == null) {
+    errorElementFirstName.innerText =('firstname is required');
+	document.getElementById("firstName").focus();
+	document.getElementById("firstName").select();
+  }
+    if (password.value != password2.value) {
+    errorElementPassword2.innerText =('Passwords do not match');
+	document.getElementById("password2").focus();
+	document.getElementById("password2").select();
+  }
+    if (password2.value.length >= 20) {
+    errorElementPassword2.innerText =('VerifiedPassword must be less than 20 characters');
+	document.getElementById("password2").focus();
+	document.getElementById("password2").select();
+  }
+    if (password2.value.length <= 7) {
+    errorElementPassword2.innerText =('VerifiedPassword must be longer than 7 characters');
+	document.getElementById("password2").focus();
+	document.getElementById("password2").select();
+  }
+    if (password.value.length <= 7) {
+    errorElementPassword.innerText =('Password must be longer than 7 characters');
+	document.getElementById("password").focus();
+	document.getElementById("password").select();
+  }
+    if (password.value.length >= 20) {
+    errorElementPassword.innerText =('Password must be less than 20 characters');
+	document.getElementById("password").focus();
+	document.getElementById("password").select();
+  }
+  
   if (username.value === '' || username.value == null) {
     errorElementUsername.innerText =('Username is required');
 	document.getElementById("userName").focus();
@@ -112,59 +158,6 @@ var validPhone = regexPhone.test(phonenumber.value);
     errorElementUsername.innerText =('Username must contain only Letters and Numbers');
 	document.getElementById("userName").focus();
 	document.getElementById("userName").select();
-  }
-  
-  if (password.value.length <= 7) {
-    errorElementPassword.innerText =('Password must be longer than 7 characters');
-	document.getElementById("password").focus();
-	document.getElementById("password").select();
-  }
-
-  if (password.value.length >= 20) {
-    errorElementPassword.innerText =('Password must be less than 20 characters');
-	document.getElementById("password").focus();
-	document.getElementById("password").select();
-  }
-  
-  if (password2.value.length <= 7) {
-    errorElementPassword2.innerText =('VerifiedPassword must be longer than 7 characters');
-	document.getElementById("password2").focus();
-	document.getElementById("password2").select();
-  }
-
-  if (password2.value.length >= 20) {
-    errorElementPassword2.innerText =('VerifiedPassword must be less than 20 characters');
-	document.getElementById("password2").focus();
-	document.getElementById("password2").select();
-  }
-
-  if (password.value != password2.value) {
-    errorElementPassword2.innerText =('Passwords do not match');
-	document.getElementById("password2").focus();
-	document.getElementById("password2").select();
-  }
-  
-  if (firstname.value === '' || firstname.value == null) {
-    errorElementFirstName.innerText =('firstname is required');
-	document.getElementById("firstName").focus();
-	document.getElementById("firstName").select();
-  }
-  
-  if (lastname.value === '' || lastname.value == null) {
-    errorElementLastName.innerText =('lastname is required');
-	document.getElementById("lastName").focus();
-	document.getElementById("lastName").select();
-  }
-
-  if (!validEmail) {
-    errorElementEmail.innerText =('Email is not valid');
-	document.getElementById("email").focus();
-	document.getElementById("email").select();
-  }
-  if (!validPhone) {
-    errorElementPhone.innerText =('Phonenumber is not valid ex.(123) 456-7890');
-	document.getElementById("phoneNumber").focus();
-	document.getElementById("phoneNumber").select();
   }
 else{
 	var today = new Date();
